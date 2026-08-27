@@ -1,0 +1,262 @@
+/* ==========================================================================
+   ACAFRO — protótipo · MOBILE FIRST
+   Linguagem visual herdada de branding/identidade-visual-cultural1
+   (editorial, quente, display serifado peso 400 com tracking negativo),
+   com a paleta trocada pelas cores da logo da ACAFRO.
+   ========================================================================== */
+:root{
+  /* --- cores da logo --- */
+  --vermelho:#E52B22; --amarelo:#EFE62E; --verde:#0F8F33; --ouro:#A8930C;
+  --vermelho-fundo:#FBE3E0; --verde-fundo:#DFF0E4; --amarelo-fundo:#FAF6D0;
+
+  /* --- papéis --- */
+  --fundo:#F7F3EC; --card:#FFFDF9; --tinta:#1A1512; --deep:#14100E;
+  --suave:#6B625A; --borda:#E4DCD0; --borda-2:#EFE8DD;
+  --primaria:var(--vermelho); --primaria-txt:#FFFDF9;
+  --zap:#25D366;
+
+  /* Trocar a dupla aqui muda a tipografia inteira do protótipo.
+     Alternativas testadas: 'Space Grotesk' / 'Familjen Grotesk' (display),
+     'Instrument Sans' / 'Figtree' (texto). */
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  --display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --raio:10px; --raio-sm:7px;
+  --toque:48px; --barra:64px; --gut:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none !important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--fundo)}
+body{font-family:var(--sans);color:var(--tinta);background:var(--fundo);
+  line-height:1.6;font-size:15px;-webkit-font-smoothing:antialiased;
+  padding-bottom:var(--barra);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select{font:inherit}
+button{cursor:pointer}
+
+/* tipografia editorial — serifada, peso 400, tracking negativo, caixa normal */
+h1,h2,h3,.display{font-family:var(--display);font-weight:600;letter-spacing:-.035em;
+  line-height:1.08;overflow-wrap:break-word}
+h1{font-size:clamp(34px,9.4vw,42px);font-weight:700;letter-spacing:-.045em}
+h2{font-size:clamp(26px,7vw,31px)}
+h3{font-size:19px;letter-spacing:-.025em}
+.ponto{color:var(--primaria)}
+.wrap{width:100%;padding-inline:var(--gut);margin:0 auto}
+
+/* marca derivada da logo — zigue-zague + três pontos nas cores da ACAFRO */
+.marca{width:24px;height:28px;flex:0 0 auto;display:block}
+.lockup{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.lockup b{display:block;font-family:var(--display);font-weight:700;font-size:19px;
+  letter-spacing:-.02em;line-height:1}
+.lockup small{display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--suave);margin-top:3px}
+
+/* eyebrow */
+.selo{display:block;color:var(--primaria);font-family:var(--sans);font-size:10px;
+  font-weight:800;letter-spacing:.13em;text-transform:uppercase;margin-bottom:9px}
+
+.faixa-zig{height:1px;background:var(--borda)}
+/* régua de acento: neutra, com três marcas curtas nas cores da logo */
+.regua{height:3px;border-radius:2px;background:var(--borda);position:relative;overflow:hidden;width:76px}
+.regua::before{content:"";position:absolute;inset:0 auto 0 0;width:36px;
+  background:linear-gradient(90deg,var(--vermelho) 0 12px,var(--amarelo) 12px 24px,var(--verde) 24px 36px)}
+
+/* ---------- topo ---------- */
+.topo{position:sticky;top:0;z-index:50;background:var(--fundo);border-bottom:1px solid var(--borda)}
+.topo-in{display:flex;align-items:center;gap:12px;padding:10px 0;min-height:62px}
+.topo img{height:36px;width:auto}
+.menu-btn{margin-left:auto;width:var(--toque);height:var(--toque);border:0;background:transparent;
+  display:grid;place-items:center;border-radius:var(--raio-sm)}
+.menu-btn:active{background:var(--borda-2)}
+.menu-btn span,.menu-btn span::before,.menu-btn span::after{
+  display:block;width:23px;height:2px;background:var(--tinta);border-radius:2px;transition:.2s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:relative}
+.menu-btn span::before{top:-7px}.menu-btn span::after{top:5px}
+body.menu-on .menu-btn span{background:transparent}
+body.menu-on .menu-btn span::before{top:2px;transform:rotate(45deg)}
+body.menu-on .menu-btn span::after{top:0;transform:rotate(-45deg)}
+
+.nav{position:fixed;inset:62px 0 0 0;background:var(--fundo);z-index:49;
+  flex-direction:column;padding:10px var(--gut) calc(var(--barra) + 20px);display:none;overflow-y:auto}
+body.menu-on .nav{display:flex}
+.nav a{text-decoration:none;font-size:17px;padding:15px 0;border-bottom:1px solid var(--borda-2);
+  min-height:var(--toque);display:flex;align-items:center;font-weight:500}
+.nav .btn{margin-top:18px;border-bottom:0}
+
+/* ---------- botões ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;
+  font-weight:700;font-size:14px;padding:13px 18px;min-height:var(--toque);
+  border-radius:var(--raio-sm);text-decoration:none;transition:.18s ease;text-align:center}
+.btn-preto{background:var(--deep);color:#FFFDF9}
+.btn-preto:hover{background:#2A241F}
+.btn-zap{background:var(--zap);color:#fff}
+.btn-zap:hover{background:#1FBA59}
+.btn-linha{background:transparent;color:var(--tinta);border:1px solid var(--borda)}
+.btn-linha:hover{border-color:var(--primaria);color:var(--primaria)}
+.btn-sm{padding:9px 13px;min-height:40px;font-size:12.5px}
+.btn-bloco{width:100%}
+
+/* ---------- hero ---------- */
+.hero{background:var(--deep);color:#FFFDF9;padding:38px 0 42px;position:relative}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:6px;
+  background:linear-gradient(90deg,var(--vermelho) 0 26px,var(--amarelo) 26px 52px,var(--verde) 52px 78px,#2A241F 78px)}
+.hero .selo{color:#C9B79A}
+.hero-logo{background:#FFFDF9;padding:18px;border-radius:var(--raio);margin:0 0 24px}
+.hero-logo figcaption{display:flex;flex-direction:column;gap:9px;margin-top:14px;
+  padding-top:14px;border-top:1px solid var(--borda);
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--suave);
+  font-weight:700;line-height:1.5}
+.hero h1{color:#FFFDF9;font-size:clamp(37px,10.2vw,48px)}
+.hero h1 em{font-style:normal;color:#D9C48A}
+.hero p{font-size:15.5px;color:#CFC6BC;margin:15px 0 24px;line-height:1.65}
+.hero-cta{display:flex;flex-direction:column;gap:10px}
+
+/* ---------- números ---------- */
+.numeros{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:22px var(--gut);background:var(--fundo)}
+.num{background:var(--card);border:1px solid var(--borda);border-radius:var(--raio);padding:16px}
+.num b{display:block;font-family:var(--display);font-weight:400;font-size:30px;line-height:1;
+  letter-spacing:-.04em;margin-bottom:4px}
+.num b{color:var(--tinta)}
+.num:first-child b{color:var(--vermelho)}   /* um único número em destaque */
+.num span{font-size:11.5px;color:var(--suave);line-height:1.4;display:block}
+
+/* ---------- seções ---------- */
+section{padding:42px 0}
+.sec-cinza{background:var(--card);border-block:1px solid var(--borda)}
+.sub{font-size:15.5px;color:var(--suave);margin-bottom:24px;line-height:1.65}
+.duas{display:grid;gap:28px;align-items:start}
+
+/* ---------- cards ---------- */
+.cards{display:grid;grid-template-columns:1fr;gap:12px}
+.card{background:var(--card);border:1px solid var(--borda);border-radius:var(--raio);padding:20px}
+.card h3{margin-bottom:6px}
+.card p{color:var(--suave);font-size:14px}
+.card .tag{display:inline-block;font-size:9px;font-weight:800;text-transform:uppercase;
+  letter-spacing:.13em;padding:5px 8px;border-radius:5px;margin-bottom:11px}
+.t-verde{background:var(--verde-fundo);color:var(--verde)}
+.t-vermelho{background:var(--vermelho-fundo);color:var(--vermelho)}
+.t-amarelo{background:var(--amarelo-fundo);color:var(--ouro)}
+.t-preto{background:#EBE5DB;color:var(--deep)}
+.t-neutro{background:#EBE5DB;color:var(--suave)}
+
+/* núcleos */
+.nucleos{display:grid;grid-template-columns:1fr;gap:10px}
+.nucleo{background:var(--card);border:1px solid var(--borda);border-radius:var(--raio);
+  padding:16px 18px;position:relative;padding-left:22px;overflow:hidden}
+.nucleo::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--borda)}
+.nucleo:first-child::before{background:var(--vermelho)}   /* só a matriz recebe acento */
+.nucleo h3{font-size:18px;margin-bottom:4px}
+.nucleo p{font-size:13px;color:var(--suave)}
+
+/* galeria */
+.galeria{display:grid;grid-auto-flow:column;grid-auto-columns:76%;gap:10px;
+  overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;
+  margin-inline:calc(var(--gut) * -1);padding-inline:var(--gut);scrollbar-width:none}
+.galeria::-webkit-scrollbar{display:none}
+.foto{aspect-ratio:4/3;border-radius:var(--raio);display:flex;align-items:flex-end;padding:14px;
+  color:#FFFDF9;font-size:12.5px;font-weight:700;position:relative;overflow:hidden;scroll-snap-align:start}
+.foto::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,#14100Ecc 100%)}
+.foto span{position:relative;z-index:1}
+.f1{background:linear-gradient(150deg,#8A6A52,#33251C)}
+.f2{background:linear-gradient(150deg,#A9866A,#463527)}
+.f3{background:linear-gradient(150deg,#4A423B,var(--deep))}
+.f4{background:linear-gradient(150deg,#C4AE8E,#6B5843)}
+.f5{background:linear-gradient(150deg,#9C7B45,#3B2C1A)}
+.f6{background:linear-gradient(150deg,#7A7168,#28231F)}
+.dica-arrasta{font-size:12px;color:var(--suave);margin-top:8px;text-align:center}
+
+/* eventos */
+.evento{display:flex;gap:13px;background:var(--card);border:1px solid var(--borda);
+  border-radius:var(--raio);padding:16px;align-items:flex-start;margin-bottom:10px}
+.data{flex:0 0 52px;text-align:center;background:var(--amarelo-fundo);border-radius:var(--raio-sm);padding:8px 4px}
+.data b{display:block;font-family:var(--display);font-weight:400;font-size:22px;line-height:1;color:var(--tinta)}
+.data span{font-size:9px;text-transform:uppercase;letter-spacing:.13em;font-weight:800;color:var(--ouro)}
+.evento div h3{font-size:17px;margin-bottom:3px}
+.evento div p{color:var(--suave);font-size:13.5px}
+
+/* CTA */
+.cta{background:var(--deep);color:#FFFDF9;padding:46px 0}
+.cta .selo{color:#C9B79A}
+.cta h2{color:#FFFDF9;margin-bottom:11px}
+.cta p{color:#CFC6BC;font-size:15.5px;margin-bottom:22px}
+
+.zap-barra{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--zap);color:#fff;
+  display:flex;align-items:center;justify-content:center;gap:9px;height:var(--barra);
+  font-weight:700;font-size:15.5px;text-decoration:none;box-shadow:0 -3px 16px rgba(0,0,0,.16);
+  padding-bottom:env(safe-area-inset-bottom);
+  transform:translateY(100%);transition:transform .25s ease;visibility:hidden}
+body.zap-on .zap-barra{transform:none;visibility:visible}
+/* glifo do WhatsApp */
+.ico-zap{width:19px;height:19px;fill:currentColor;flex:0 0 auto}
+.zap-barra .ico-zap{width:21px;height:21px}
+
+/* rodapé */
+footer{background:var(--deep);color:#9C938A;padding:34px 0 22px;font-size:14px}
+footer h4{color:#FFFDF9;font-family:var(--sans);font-size:10px;text-transform:uppercase;
+  letter-spacing:.13em;margin-bottom:11px;font-weight:800}
+.foot-grid{display:grid;gap:26px;margin-bottom:24px}
+.foot-grid img{height:44px;background:#fff;padding:7px;border-radius:var(--raio-sm);margin-bottom:13px}
+footer a{color:#CFC6BC;text-decoration:none;display:flex;align-items:center;min-height:38px}
+footer a:hover{color:#FFFDF9}
+.foot-fim{border-top:1px solid #2A241F;padding-top:16px;display:grid;gap:7px;font-size:12px}
+
+.aviso{background:#EFE8DD;color:var(--suave);text-align:center;padding:9px var(--gut);
+  font-size:11.5px;font-weight:600;line-height:1.45;border-bottom:1px solid var(--borda)}
+.aviso b{color:var(--tinta)}
+
+/* ==========================================================================
+   ≥ 700px
+   ========================================================================== */
+@media (min-width:700px){
+  :root{--gut:28px;--barra:0px}
+  body{padding-bottom:0;font-size:15px}
+  .wrap{width:min(1180px,94vw);padding-inline:0}
+  .topo-in{gap:24px;padding:14px 0}
+  .topo img{height:42px}
+  .menu-btn{display:none}
+  .nav{position:static;display:flex;flex-direction:row;gap:24px;margin-left:auto;align-items:center;
+    padding:0;inset:auto;overflow:visible;background:transparent}
+  .nav a{font-size:14px;padding:6px 0;border-bottom:1px solid transparent;min-height:auto;color:var(--suave)}
+  .nav a:hover{color:var(--primaria)}
+  .nav .btn{margin-top:0;color:var(--tinta)}
+  .hero{padding:60px 0 56px}
+  .hero-cta{flex-direction:row;flex-wrap:wrap}
+  .btn-bloco{width:auto}
+  .numeros{grid-template-columns:repeat(4,1fr);gap:12px;padding:30px 0;width:min(1180px,94vw);margin-inline:auto}
+  .num{padding:20px;min-height:130px;display:flex;flex-direction:column;justify-content:flex-end}
+  .num b{font-size:36px}.num span{font-size:12.5px}
+  section{padding:62px 0}
+  .sub{max-width:60ch;font-size:16px}
+  .cards{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+  .cards .card{transition:.2s}
+  .card:hover{border-color:var(--primaria)}
+  .nucleos{grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+  .galeria{grid-auto-flow:row;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+    overflow:visible;margin-inline:0;padding-inline:0;gap:12px}
+  .dica-arrasta{display:none}
+  .evento{gap:18px;padding:19px;align-items:center}
+  .data{flex:0 0 66px;padding:10px 6px}.data b{font-size:26px}
+  .cta{padding:66px 0;text-align:center}
+  .cta p{max-width:54ch;margin-inline:auto}
+  .zap-barra{left:auto;right:22px;bottom:22px;height:auto;padding:14px 22px;
+    border-radius:999px;box-shadow:0 8px 26px rgba(0,0,0,.22)}
+  .foot-grid{grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+  .foot-fim{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px}
+}
+
+/* ==========================================================================
+   ≥ 1000px
+   ========================================================================== */
+@media (min-width:1000px){
+  .hero{padding:82px 0 74px}
+  .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:52px;align-items:center}
+  .hero-logo{order:2;margin-bottom:0;padding:26px}
+  .hero-txt{order:1}
+  .hero h1{font-size:clamp(48px,5vw,66px)}
+  .hero p{font-size:17px;max-width:50ch;margin:20px 0 28px}
+  section{padding:76px 0}
+  .duas{grid-template-columns:1fr 1fr;gap:54px}
+  h1{font-size:clamp(42px,4.4vw,58px)}
+  h2{font-size:clamp(28px,3.2vw,38px)}
+}

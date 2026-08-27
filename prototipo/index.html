@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ACAFRO — Associação de Cultura Afro-Brasileira de Ouro Branco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+
+<div class="aviso"><b>Protótipo navegável.</b> Conteúdo ilustrativo — aulas, horários e eventos são exemplos a validar com a ACAFRO.</div>
+
+<header class="topo">
+  <div class="wrap topo-in">
+    <a class="lockup" href="index.html"><svg class="marca" viewBox="0 0 26 30" aria-hidden="true"><path d="M3.5 3.5 L11 9 L3.5 14.5 L11 20 L3.5 25.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="7.5" r="2.1" fill="#E52B22"/><circle cx="20" cy="15" r="2.1" fill="#EFE62E"/><circle cx="20" cy="22.5" r="2.1" fill="#0F8F33"/></svg><span><b>ACAFRO</b><small>Ouro Branco · MG</small></span></a>
+    <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" onclick="menu()"><span></span></button>
+    <nav class="nav" id="nav">
+      <a href="#sobre" onclick="fecha()">A associação</a>
+      <a href="#aulas" onclick="fecha()">Aulas</a>
+      <a href="#nucleos" onclick="fecha()">Núcleos</a>
+      <a href="#galeria" onclick="fecha()">Fotos</a>
+      <a href="#eventos" onclick="fecha()">Eventos</a>
+      <a class="btn btn-linha" href="sistema.html">Área restrita</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <figure class="hero-logo"><img src="assets/logo-acafro.jpeg" alt="Logo da ACAFRO"><figcaption><span class="regua"></span>Associação de Cultura Afro-Brasileira de Ouro Branco</figcaption></figure>
+    <div class="hero-txt">
+      <p class="selo">Desde 2009 em Ouro Branco</p>
+      <h1>Cultura afro como <em>alternativa à formação cidadã</em></h1>
+      <p>Desde 2009, a ACAFRO leva capoeira, percussão, música e dança a crianças e jovens
+         de Ouro Branco. Oficinas gratuitas para menores de idade, em quatro núcleos da cidade.</p>
+      <div class="hero-cta">
+        <a class="btn btn-zap btn-bloco" id="cta-hero" href="https://wa.me/5531984991703?text=Ol%C3%A1!%20Quero%20saber%20sobre%20as%20aulas%20da%20ACAFRO" target="_blank" rel="noopener"><svg class="ico-zap" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Falar no WhatsApp</a>
+        <a class="btn btn-linha btn-bloco" style="color:#FFFDF9;border-color:#4A423B" href="#aulas">Ver as aulas</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="numeros">
+  <div class="num"><b>2009</b><span>ano de fundação</span></div>
+  <div class="num"><b>150</b><span>alunos de capoeira</span></div>
+  <div class="num"><b>200+</b><span>atendimentos por mês</span></div>
+  <div class="num"><b>4</b><span>núcleos na cidade</span></div>
+</div>
+
+<section id="sobre">
+  <div class="wrap duas">
+    <div>
+      <div class="selo">A associação</div>
+      <h2>Uma associação feita por artistas da cidade<span class="ponto">.</span></h2>
+      <p class="sub">A ACAFRO nasceu em janeiro de 2009, criada por um grupo de artistas locais
+        liderado por Wanderson Wagner de Campos, o Mestre Sapo. É uma instituição sem fins
+        lucrativos, dedicada a promover a cultura negra e o movimento artístico em Ouro Branco
+        e região.</p>
+      <p style="color:var(--texto-2);font-size:17px">Atuamos em capoeira, percussão, pandeiro,
+        música, dança, teatro e circo. As oficinas são gratuitas para alunos menores de idade,
+        e o trabalho é voltado a crianças e jovens em situação de vulnerabilidade social.</p>
+    </div>
+    <div class="cards" style="grid-template-columns:1fr">
+      <div class="card">
+        <span class="tag t-amarelo">Reconhecimento</span>
+        <h3>Medalha Dona Jandira</h3>
+        <p>Em 2025, a ACAFRO recebeu a Medalha Dona Jandira em sua primeira edição, concedida
+           pela Câmara Municipal de Ouro Branco.</p>
+      </div>
+      <div class="card">
+        <span class="tag t-verde">Missão</span>
+        <h3>Formação cidadã</h3>
+        <p>Cultura afro-brasileira como caminho de formação — não só como prática esportiva
+           ou artística.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="aulas" class="sec-cinza">
+  <div class="wrap">
+    <div class="selo">O que oferecemos</div>
+    <h2>Aulas e oficinas<span class="ponto">.</span></h2>
+    <p class="sub">Todas as oficinas são gratuitas para alunos menores de idade.</p>
+    <div class="cards">
+      <div class="card"><span class="tag t-vermelho">Principal</span><h3>Capoeira</h3>
+        <p>Nossa atividade principal, com cerca de 150 alunos. Turmas infantis e adultas, com
+           graduação por corda.</p></div>
+      <div class="card"><span class="tag t-neutro">Música</span><h3>Percussão</h3>
+        <p>Atabaque, agogô e demais instrumentos da roda e da cultura afro-brasileira.</p></div>
+      <div class="card"><span class="tag t-neutro">Música</span><h3>Pandeiro</h3>
+        <p>Oficina dedicada ao instrumento, do acompanhamento de roda ao repertório popular.</p></div>
+      <div class="card"><span class="tag t-neutro">Arte</span><h3>Dança</h3>
+        <p>Danças de matriz africana e afro-brasileira.</p></div>
+      <div class="card"><span class="tag t-neutro">Arte</span><h3>Teatro e circo</h3>
+        <p>Segmentos em que a associação também atua ao longo do ano.</p></div>
+      <div class="card"><span class="tag t-neutro">Música</span><h3>Musicalização</h3>
+        <p>Iniciação musical ligada às práticas da capoeira e da percussão.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="nucleos">
+  <div class="wrap">
+    <div class="selo">Onde estamos</div>
+    <h2>Núcleos de atendimento<span class="ponto">.</span></h2>
+    <p class="sub">As aulas acontecem de segunda a sábado, distribuídas pelos núcleos da cidade.
+       Horários ilustrativos — a confirmar com a associação.</p>
+    <div class="nucleos">
+      <div class="nucleo"><h3>Centro — Matriz</h3><p>Seg a sáb · manhã e noite<br>Capoeira, percussão, música</p></div>
+      <div class="nucleo"><h3>São Francisco</h3><p>Ter e qui · tarde<br>Capoeira infantil e adulto</p></div>
+      <div class="nucleo"><h3>Belvedere</h3><p>Seg e qua · tarde<br>Capoeira, pandeiro</p></div>
+      <div class="nucleo"><h3>Olaria</h3><p>Qua e sex · tarde<br>Capoeira infantil</p></div>
+      <div class="nucleo"><h3>1º de Maio</h3><p>Sáb · manhã<br>Capoeira, dança</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="sec-cinza">
+  <div class="wrap">
+    <div class="selo">Galeria</div>
+    <h2>A ACAFRO em movimento<span class="ponto">.</span></h2>
+    <p class="sub">Registros das aulas, rodas e apresentações. No sistema, essas fotos vêm
+       direto do acervo alimentado pelos professores.</p>
+    <div class="galeria">
+      <div class="foto f1"><span>Roda de capoeira · Núcleo Centro</span></div>
+      <div class="foto f2"><span>Oficina de percussão</span></div>
+      <div class="foto f3"><span>Apresentação na praça</span></div>
+      <div class="foto f4"><span>Batizado e troca de cordas</span></div>
+      <div class="foto f5"><span>Turma infantil · São Francisco</span></div>
+      <div class="foto f6"><span>Grupo de dança afro</span></div>
+    </div>
+    <p class="dica-arrasta">← arraste para ver mais fotos →</p>
+  </div>
+</section>
+
+<section id="eventos">
+  <div class="wrap">
+    <div class="selo">Agenda</div>
+    <h2>Próximos eventos<span class="ponto">.</span></h2>
+    <p class="sub">Eventos ilustrativos — no sistema, esta agenda é alimentada pela área administrativa.</p>
+    <div class="evento">
+      <div class="data"><b>14</b><span>set</span></div>
+      <div><h3>Roda de Capoeira Aberta</h3><p>Praça Central · 15h · Aberto ao público, com participação de todos os núcleos</p></div>
+    </div>
+    <div class="evento">
+      <div class="data"><b>05</b><span>out</span></div>
+      <div><h3>Batizado e Troca de Cordas</h3><p>Quadra do São Francisco · 9h às 17h · Mestres convidados</p></div>
+    </div>
+    <div class="evento">
+      <div class="data"><b>20</b><span>nov</span></div>
+      <div><h3>Semana da Consciência Negra</h3><p>Programação em todos os núcleos · Apresentações, oficinas e roda de conversa</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="wrap">
+    <p class="selo">Matrículas abertas o ano todo</p>
+    <h2>Quer participar<span class="ponto">?</span></h2>
+    <p>Fale com a gente pelo WhatsApp. As oficinas são gratuitas para menores de idade e as
+       matrículas ficam abertas o ano todo.</p>
+    <a class="btn btn-zap btn-bloco" href="https://wa.me/5531984991703?text=Ol%C3%A1!%20Quero%20matricular%20na%20ACAFRO" target="_blank" rel="noopener" style="max-width:320px;margin-inline:auto"><svg class="ico-zap" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Chamar no WhatsApp</a>
+  </div>
+</div>
+<div class="faixa-zig"></div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="lockup"><svg class="marca" viewBox="0 0 26 30" aria-hidden="true"><path d="M3.5 3.5 L11 9 L3.5 14.5 L11 20 L3.5 25.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="7.5" r="2.1" fill="#E52B22"/><circle cx="20" cy="15" r="2.1" fill="#EFE62E"/><circle cx="20" cy="22.5" r="2.1" fill="#0F8F33"/></svg><span><b>ACAFRO</b><small>Ouro Branco · MG</small></span></div>
+        <p style="margin-top:14px">Associação de Cultura Afro-Brasileira de Ouro Branco<br>
+           CNPJ 10.754.160/0001-80<br>Rua Professor José Luiz, 460 — Centro<br>
+           Ouro Branco / MG · CEP 36420-000</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <a href="#sobre">A associação</a><a href="#aulas">Aulas</a>
+        <a href="#nucleos">Núcleos</a><a href="#eventos">Eventos</a>
+        <a href="sistema.html">Área restrita</a>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <a href="https://wa.me/5531984991703" target="_blank" rel="noopener" style="gap:8px"><svg class="ico-zap" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>(31) 98499-1703</a>
+        <a href="mailto:julianoevanp1@gmail.com">julianoevanp1@gmail.com</a>
+        <a href="https://www.facebook.com/acafro.ob/" target="_blank" rel="noopener">facebook.com/acafro.ob</a>
+      </div>
+    </div>
+    <div class="foot-fim">
+      <span>© 2026 ACAFRO · Projeto Cultura Afro, uma alternativa à formação cidadã</span>
+      <span>Protótipo — Trabalho Interdisciplinar 4 · PUC Minas</span>
+    </div>
+  </div>
+</footer>
+
+<a class="zap-barra" href="https://wa.me/5531984991703?text=Ol%C3%A1!%20Quero%20saber%20sobre%20as%20aulas%20da%20ACAFRO" target="_blank" rel="noopener"><svg class="ico-zap" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>Falar no WhatsApp</a>
+
+<script>
+function menu(){document.body.classList.toggle('menu-on');
+  document.querySelector('.menu-btn').setAttribute('aria-expanded',document.body.classList.contains('menu-on'))}
+function fecha(){document.body.classList.remove('menu-on');
+  document.querySelector('.menu-btn').setAttribute('aria-expanded','false')}
+addEventListener('resize',()=>{if(innerWidth>=700)fecha()});
+
+/* a barra fixa só entra depois que o botão do hero sai de vista — evita dois CTAs iguais na tela */
+const alvo=document.getElementById('cta-hero');
+function barraZap(){
+  if(!alvo){document.body.classList.add('zap-on');return}
+  const r=alvo.getBoundingClientRect();
+  document.body.classList.toggle('zap-on', r.bottom < 70);
+}
+addEventListener('scroll',barraZap,{passive:true});
+addEventListener('resize',barraZap);
+barraZap();
+</script>
+</body>
+</html>

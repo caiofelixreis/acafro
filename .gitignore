@@ -1,0 +1,24 @@
+# dependências e build do projeto de branding (Next.js)
+node_modules/
+.next/
+out/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+
+# lockfiles duplicados (mantido só o package-lock.json)
+pnpm-lock.yaml
+
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# editores
+.idea/
+.vscode/
+*.swp
+
+# temporários
+*.log

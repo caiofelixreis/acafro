@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ACAFRO — Área restrita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/estilo.css">
+<link rel="stylesheet" href="assets/sistema.css">
+</head>
+<body class="app">
+
+<!-- ========== LOGIN ========== -->
+<div class="login" id="tela-login">
+  <div class="login-arte">
+    <div class="lockup"><svg class="marca" viewBox="0 0 26 30" aria-hidden="true"><path d="M3.5 3.5 L11 9 L3.5 14.5 L11 20 L3.5 25.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="7.5" r="2.1" fill="#E52B22"/><circle cx="20" cy="15" r="2.1" fill="#EFE62E"/><circle cx="20" cy="22.5" r="2.1" fill="#0F8F33"/></svg><span><b>ACAFRO</b><small>Ouro Branco · MG</small></span></div>
+    <h1>Sistema de gestão da ACAFRO</h1>
+    <p>Aulas, alunos, frequência, eventos e o acervo de fotos e documentos da associação,
+       em um lugar só.</p>
+  </div>
+  <div class="login-form">
+    <h2>Entrar</h2>
+    <p>Protótipo — escolha um perfil para navegar.</p>
+    <div class="perfis">
+      <button class="perfil" onclick="entrar('admin')">
+        <span class="av av-adm">A</span>
+        <span><b>Administração</b><span>Acesso completo — cadastros, frequência e relatórios</span></span>
+      </button>
+      <button class="perfil" onclick="entrar('prof')">
+        <span class="av av-prof">P</span>
+        <span><b>Professor</b><span>Minhas aulas, chamada e alunos</span></span>
+      </button>
+    </div>
+    <div class="ou">ou entre com e-mail</div>
+    <div class="campo"><label>E-mail</label><input type="email" placeholder="voce@acafro.org.br"></div>
+    <div class="campo"><label>Senha</label><input type="password" placeholder="••••••••"></div>
+    <button class="btn btn-preto" style="width:100%;justify-content:center" onclick="entrar('admin')">Entrar</button>
+    <p style="margin-top:22px;font-size:14px"><a href="index.html" style="color:var(--texto-2)">← Voltar ao site</a></p>
+  </div>
+</div>
+
+<!-- ========== APP ========== -->
+<div class="shell" id="tela-app" hidden>
+  <div class="app-topo">
+    <svg class="marca" viewBox="0 0 26 30" aria-hidden="true"><path d="M3.5 3.5 L11 9 L3.5 14.5 L11 20 L3.5 25.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="7.5" r="2.1" fill="#E52B22"/><circle cx="20" cy="15" r="2.1" fill="#EFE62E"/><circle cx="20" cy="22.5" r="2.1" fill="#0F8F33"/></svg><b>ACAFRO</b><span class="titulo-mob" id="topo-tit">Início</span>
+    <button class="drawer-btn" aria-label="Abrir menu" onclick="gaveta(true)"><span></span></button>
+  </div>
+  <div class="veu" onclick="gaveta(false)"></div>
+  <aside class="side">
+    <div class="side-topo">
+      <div class="lockup"><svg class="marca" viewBox="0 0 26 30" aria-hidden="true"><path d="M3.5 3.5 L11 9 L3.5 14.5 L11 20 L3.5 25.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="7.5" r="2.1" fill="#E52B22"/><circle cx="20" cy="15" r="2.1" fill="#EFE62E"/><circle cx="20" cy="22.5" r="2.1" fill="#0F8F33"/></svg><span><b>ACAFRO</b><small>Ouro Branco · MG</small></span></div>
+      <button class="fechar-drawer" aria-label="Fechar menu" onclick="gaveta(false)">&times;</button>
+    </div>
+    <nav id="menu"></nav>
+    <div class="side-fim">
+      <div class="eu">
+        <span class="av" id="eu-av"></span>
+        <span><b id="eu-nome"></b><span id="eu-papel"></span></span>
+      </div>
+      <a class="sair" onclick="sair()">Trocar de perfil / sair</a>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="bar">
+      <h1 id="titulo"></h1>
+      <div class="dir" id="acoes"></div>
+    </div>
+    <div class="conteudo" id="conteudo"></div>
+  </main>
+  <nav class="tabs" id="tabs"></nav>
+</div>
+
+<script>
+/* ---------------- dados de exemplo ---------------- */
+const LOCAIS=["Centro — Matriz","São Francisco","Belvedere","Olaria","1º de Maio"];
+const ALUNOS=[
+ ["Ana Beatriz Rocha",11,"Corda crua","Centro — Matriz","Marcelo Rocha","(31) 99xxx-1122","Isento"],
+ ["Davi Nunes Correia",14,"Corda amarela","São Francisco","Cláudia Nunes","(31) 99xxx-3344","Isento"],
+ ["Gabriel Antunes",9,"Corda crua","Olaria","Sônia Antunes","(31) 99xxx-5566","Isento"],
+ ["Helena Faria Lima",16,"Corda laranja","Centro — Matriz","Roberto Lima","(31) 99xxx-7788","Isento"],
+ ["Iago Pereira Dias",22,"Corda azul","Belvedere","—","(31) 99xxx-9900","Em dia"],
+ ["Juliana Moreira",27,"Corda verde","Centro — Matriz","—","(31) 99xxx-2233","Atrasado"],
+ ["Kauã Silva Ramos",13,"Corda amarela","Belvedere","Patrícia Ramos","(31) 99xxx-4455","Isento"],
+ ["Larissa do Carmo",10,"Corda crua","1º de Maio","Eduardo do Carmo","(31) 99xxx-6677","Isento"],
+];
+const AULAS=[
+ ["Capoeira infantil","Centro — Matriz","Seg e Qua","18:00","Juliano Evangelista",18],
+ ["Capoeira adulto","Centro — Matriz","Seg e Qua","19:30","Juliano Evangelista",14],
+ ["Capoeira infantil","São Francisco","Ter e Qui","14:00","Mestre Sapo",22],
+ ["Percussão","Centro — Matriz","Ter","19:00","Juliano Evangelista",12],
+ ["Capoeira infantil","Belvedere","Seg e Qua","15:00","Ricardo Alves",16],
+ ["Pandeiro","Belvedere","Qua","17:00","Ricardo Alves",9],
+ ["Capoeira infantil","Olaria","Qua e Sex","14:30","Mestre Sapo",19],
+ ["Dança afro","1º de Maio","Sáb","09:00","Camila Ferreira",13],
+];
+const EVENTOS=[
+ ["14/09/2026","Roda de Capoeira Aberta","Praça Central","Publicado"],
+ ["05/10/2026","Batizado e Troca de Cordas","Quadra do São Francisco","Publicado"],
+ ["20/11/2026","Semana da Consciência Negra","Todos os núcleos","Rascunho"],
+ ["12/12/2026","Apresentação de encerramento","Centro — Matriz","Rascunho"],
+];
+const FREQ=[
+ ["26/08","Capoeira infantil","Centro — Matriz",18,16,"Sim","Sim"],
+ ["26/08","Capoeira adulto","Centro — Matriz",14,11,"Sim","Sim"],
+ ["25/08","Capoeira infantil","São Francisco",22,20,"Sim","Não"],
+ ["25/08","Percussão","Centro — Matriz",12,9,"Não","Não"],
+ ["24/08","Capoeira infantil","Belvedere",16,15,"Sim","Sim"],
+ ["23/08","Dança afro","1º de Maio",13,10,"Sim","Sim"],
+];
+const PASTAS=[["📁","Editais e prestação de contas","14 arquivos"],["📁","Estatuto e atas","8 arquivos"],
+ ["📁","Contratos e convênios","6 arquivos"],["📁","Listas de presença digitalizadas","32 arquivos"],
+ ["📁","Fichas de matrícula","118 arquivos"],["📁","Autorizações de imagem","96 arquivos"]];
+const ARQUIVOS=[["📄","Edital Municipal de Cultura 2026.pdf","2,4 MB · 12/08/2026"],
+ ["📄","Prestação de contas 2025.pdf","1,1 MB · 03/03/2026"],["📊","Relatório de frequência — julho.xlsx","320 KB · 02/08/2026"],
+ ["📄","Estatuto ACAFRO.pdf","890 KB · 21/01/2009"],["🖼️","Logo ACAFRO (alta resolução).png","1,8 MB · 15/05/2024"],
+ ["📄","Convênio Prefeitura 2026.pdf","640 KB · 10/02/2026"]];
+const FOTOS=[["f1","Roda de capoeira","Centro · 26/08"],["f2","Oficina de percussão","Centro · 25/08"],
+ ["f3","Apresentação na praça","Praça Central · 20/08"],["f4","Batizado 2025","São Francisco · 10/2025"],
+ ["f5","Turma infantil","São Francisco · 25/08"],["f6","Dança afro","1º de Maio · 23/08"],
+ ["f2","Aula ao ar livre","Belvedere · 24/08"],["f1","Roda de conversa","Olaria · 22/08"]];
+
+/* ---------------- menus por perfil ---------------- */
+const MENU={
+ admin:[["Geral",[["inicio","◧","Início"],["aulas","◷","Aulas e horários"],["locais","⚑","Localidades"],
+   ["alunos","👥","Alunos"],["eventos","★","Eventos"]]],
+  ["Frequência",[["freq","✓","Registros de frequência"],["rel","⤓","Relatórios"]]],
+  ["Acervo",[["fotos","▣","Fotos"],["arquivos","🗀","Arquivos"]]]],
+ prof:[["Minha rotina",[["minhas","◷","Minhas aulas"],["chamada","✓","Marcar frequência"],["alunos","👥","Meus alunos"]]],
+  ["Acervo",[["fotos","▣","Fotos"],["arquivos","🗀","Arquivos"]]]]
+};
+const TABS={
+ admin:[["inicio","◧","Início"],["aulas","◷","Aulas"],["alunos","👥","Alunos"],
+        ["freq","✓","Frequência"],["__mais","☰","Mais"]],
+ prof:[["minhas","◷","Aulas"],["chamada","✓","Chamada"],["alunos","👥","Alunos"],
+       ["fotos","▣","Fotos"],["__mais","☰","Mais"]]
+};
+const PESSOA={admin:{nome:"Juliano E. Pinto",papel:"Administração",ini:"J",cls:"av-adm"},
+              prof:{nome:"Ricardo Alves",papel:"Professor · Belvedere",ini:"R",cls:"av-prof"}};
+
+let papel="admin", tela="inicio";
+
+function entrar(p){papel=p;tela=(p==="admin")?"inicio":"minhas";gaveta(false);
+  document.getElementById("tela-login").hidden=true;document.getElementById("tela-app").hidden=false;
+  const q=PESSOA[p];document.getElementById("eu-nome").textContent=q.nome;
+  document.getElementById("eu-papel").textContent=q.papel;
+  const av=document.getElementById("eu-av");av.textContent=q.ini;av.className="av "+q.cls;
+  desenhaMenu();ir(tela);window.scrollTo(0,0)}
+function sair(){gaveta(false);document.getElementById("tela-app").hidden=true;document.getElementById("tela-login").hidden=false;window.scrollTo(0,0)}
+function desenhaMenu(){
+  document.getElementById("menu").innerHTML=MENU[papel].map(([g,its])=>
+    `<div class="side-lbl">${g}</div>`+its.map(([id,ic,tx])=>
+     `<a class="${id===tela?'on':''}" onclick="ir('${id}')"><i>${ic}</i>${tx}</a>`).join("")).join("");
+  document.getElementById("tabs").innerHTML=TABS[papel].map(([id,ic,tx])=>
+    id==="__mais"
+      ? `<a onclick="gaveta(true)"><i>${ic}</i>${tx}</a>`
+      : `<a class="${id===tela?'on':''}" onclick="ir('${id}')"><i>${ic}</i>${tx}</a>`).join("");
+}
+function gaveta(abrir){document.body.classList.toggle("drawer-on",abrir)}
+
+const tabela=(cols,linhas)=>`<div class="painel-corpo plano"><table><thead><tr>${
+  cols.map(c=>`<th>${c}</th>`).join("")}</tr></thead><tbody>${
+  linhas.map(l=>`<tr>${l.map((c,i)=>`<td data-l="${cols[i]}">${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+const painel=(t,corpo,acoes="")=>`<div class="painel"><div class="painel-topo"><h3>${t}</h3>
+  <div class="dir">${acoes}</div></div>${corpo}</div>`;
+const campo=(l,ph,tipo="input")=>tipo==="select"
+  ?`<div class="campo"><label>${l}</label><select><option>${ph}</option></select></div>`
+  :`<div class="campo"><label>${l}</label><input placeholder="${ph}"></div>`;
+
+const TELAS={
+ inicio:()=>({t:"Início",a:`<button class="btn btn-preto btn-sm" onclick="ir('chamada')">Marcar frequência</button>`,c:`
+  <div class="kpis">
+    <div class="kpi v"><i>👥</i><span>Alunos ativos</span><b>158</b></div>
+    <div class="kpi g"><i>◷</i><span>Aulas nesta semana</span><b>24</b></div>
+    <div class="kpi a"><i>✓</i><span>Frequência média</span><b>87%</b></div>
+    <div class="kpi"><i>⚑</i><span>Núcleos ativos</span><b>5</b></div>
+  </div>
+  ${painel("Últimas aulas registradas",tabela(["Data","Aula","Local","Previstos","Presentes","Foto","GPS"],
+    FREQ.map(f=>[f[0],f[1],f[2],f[3],`<b>${f[4]}</b>`,
+      `<span class="pill ${f[5]==='Sim'?'p-verde':'p-cinza'}">${f[5]}</span>`,
+      `<span class="pill ${f[6]==='Sim'?'p-verde':'p-cinza'}">${f[6]}</span>`])),
+    `<button class="btn btn-linha btn-sm" onclick="ir('freq')">Ver todos</button>`)}
+  <div class="grade">
+    ${painel("Próximos eventos",tabela(["Data","Evento","Situação"],
+      EVENTOS.slice(0,3).map(e=>[e[0],e[1],`<span class="pill ${e[3]==='Publicado'?'p-verde':'p-amarelo'}">${e[3]}</span>`])))}
+    ${painel("Mensalidades",`<div class="painel-corpo">
+      <p style="margin-bottom:14px"><b>96 alunos</b> em oficinas gratuitas (menores de idade)</p>
+      <p style="margin-bottom:14px"><span class="pill p-verde">Em dia</span> 48 alunos</p>
+      <p><span class="pill p-vermelho">Atrasado</span> 14 alunos</p></div>`)}
+  </div>`}),
+
+ aulas:()=>({t:"Aulas e horários",a:`<button class="btn btn-preto btn-sm">+ Nova aula</button>`,c:`
+  ${painel("Criar aula",`<div class="painel-corpo"><div class="form-grid">
+    ${campo("Modalidade","Capoeira","select")}${campo("Localidade","Centro — Matriz","select")}
+    ${campo("Dias da semana","Seg e Qua")}${campo("Horário","18:00")}
+    ${campo("Professor responsável","Juliano Evangelista","select")}${campo("Faixa etária","7 a 12 anos")}
+    <div class="full"><button class="btn btn-preto btn-sm">Salvar aula</button></div>
+  </div></div>`)}
+  ${painel("Aulas cadastradas",tabela(["Modalidade","Localidade","Dias","Horário","Professor","Alunos"],
+    AULAS.map(a=>[`<b>${a[0]}</b>`,a[1],a[2],a[3],a[4],a[5]])))}`}),
+
+ locais:()=>({t:"Localidades",a:`<button class="btn btn-preto btn-sm">+ Nova localidade</button>`,c:`
+  <div class="nota">A ata de 21/08 cita "Matriz" e "1º de Maio". A pesquisa pública aponta
+   São Francisco, Belvedere, Olaria e Centro. <b>Lista a confirmar com a associação.</b></div>
+  ${painel("Cadastrar localidade",`<div class="painel-corpo"><div class="form-grid">
+    ${campo("Nome do núcleo","São Francisco")}${campo("Endereço","Rua ...")}
+    ${campo("Responsável","Nome do professor","select")}${campo("Dias de funcionamento","Ter e Qui")}
+    <div class="full"><button class="btn btn-preto btn-sm">Salvar localidade</button></div>
+  </div></div>`)}
+  ${painel("Localidades ativas",tabela(["Núcleo","Turmas","Alunos","Professores","Situação"],
+    [["Centro — Matriz",3,62,2,'<span class="pill p-verde">Ativa</span>'],
+     ["São Francisco",1,22,1,'<span class="pill p-verde">Ativa</span>'],
+     ["Belvedere",2,25,1,'<span class="pill p-verde">Ativa</span>'],
+     ["Olaria",1,19,1,'<span class="pill p-verde">Ativa</span>'],
+     ["1º de Maio",1,13,1,'<span class="pill p-amarelo">A confirmar</span>']]))}`}),
+
+ alunos:()=>({t:papel==="admin"?"Alunos":"Meus alunos",
+  a:`<button class="btn btn-preto btn-sm">+ Cadastrar aluno</button>`,c:`
+  ${painel("Cadastrar aluno",`<div class="painel-corpo"><div class="form-grid">
+    ${campo("Nome completo","Nome do aluno")}${campo("Idade","12")}
+    ${campo("Nome do responsável","Obrigatório para menores de idade")}${campo("Telefone","(31) 9....")}
+    ${campo("E-mail","email@exemplo.com")}${campo("Endereço","Rua ...")}
+    ${campo("Modalidade","Capoeira","select")}${campo("Graduação","Corda crua","select")}
+    ${campo("Localidade","Centro — Matriz","select")}${campo("Mensalidade","Isento (menor de idade)","select")}
+    <div class="full"><button class="btn btn-preto btn-sm">Salvar aluno</button></div>
+  </div></div>`)}
+  ${painel(papel==="admin"?"158 alunos ativos":"25 alunos nas minhas turmas",
+    tabela(["Aluno","Idade","Graduação","Localidade","Responsável","Contato","Mensalidade"],
+    (papel==="admin"?ALUNOS:ALUNOS.filter(a=>a[3]==="Belvedere")).map(a=>[
+      `<b>${a[0]}</b>`,a[1],a[2],a[3],a[4],a[5],
+      `<span class="pill ${a[6]==='Atrasado'?'p-vermelho':a[6]==='Isento'?'p-cinza':'p-verde'}">${a[6]}</span>`])),
+    `<button class="btn btn-linha btn-sm">Exportar lista</button>`)}`}),
+
+ eventos:()=>({t:"Eventos",a:`<button class="btn btn-preto btn-sm">+ Novo evento</button>`,c:`
+  ${painel("Cadastrar evento",`<div class="painel-corpo"><div class="form-grid">
+    ${campo("Nome do evento","Roda de Capoeira Aberta")}${campo("Data","14/09/2026")}
+    ${campo("Local","Praça Central")}${campo("Professores envolvidos","Selecionar","select")}
+    ${campo("Parcerias","Prefeitura de Ouro Branco")}${campo("Edital vinculado","Nenhum","select")}
+    <div class="campo full"><label>Fotos do evento</label>
+      <div class="zona">Toque para escolher as fotos</div></div>
+    <div class="full" style="margin-top:14px"><button class="btn btn-preto btn-sm">Publicar no site</button></div>
+  </div></div>`)}
+  ${painel("Eventos cadastrados",tabela(["Data","Evento","Local","Situação"],
+    EVENTOS.map(e=>[e[0],`<b>${e[1]}</b>`,e[2],
+      `<span class="pill ${e[3]==='Publicado'?'p-verde':'p-amarelo'}">${e[3]}</span>`])))}`}),
+
+ freq:()=>({t:"Registros de frequência",a:`<button class="btn btn-linha btn-sm" onclick="ir('rel')">Gerar relatório</button>`,c:`
+  <div class="kpis">
+    <div class="kpi g"><i>◷</i><span>Aulas registradas no mês</span><b>96</b></div>
+    <div class="kpi"><i>▣</i><span>Com foto e vídeo</span><b>81</b></div>
+    <div class="kpi a"><i>⚑</i><span>Com geolocalização</span><b>78</b></div>
+    <div class="kpi v"><i>✓</i><span>Frequência média</span><b>87%</b></div>
+  </div>
+  ${painel("Registros recentes",tabela(["Data","Aula","Local","Previstos","Presentes","Foto/vídeo","GPS"],
+    FREQ.map(f=>[f[0],f[1],f[2],f[3],`<b>${f[4]}</b>`,
+      `<span class="pill ${f[5]==='Sim'?'p-verde':'p-cinza'}">${f[5]}</span>`,
+      `<span class="pill ${f[6]==='Sim'?'p-verde':'p-cinza'}">${f[6]}</span>`])))}`}),
+
+ rel:()=>({t:"Relatórios",a:"",c:`
+  <div class="nota">O relatório de frequência é o artefato de <b>prestação de contas</b> a
+   parceiros e financiadores. Precisa sair apresentável, com as evidências de foto e local.</div>
+  ${painel("Gerar relatório de frequência",`<div class="painel-corpo"><div class="form-grid">
+    ${campo("Período","01/08/2026 a 31/08/2026")}${campo("Localidade","Todas","select")}
+    ${campo("Modalidade","Todas","select")}${campo("Professor","Todos","select")}
+    <div class="campo full"><label>Incluir no relatório</label>
+      <p style="font-size:14px;color:var(--texto-2)">
+      <label><input type="checkbox" checked> Fotos e vídeos das aulas</label> &nbsp;
+      <label><input type="checkbox" checked> Coordenadas de geolocalização</label> &nbsp;
+      <label><input type="checkbox" checked> Lista nominal de alunos</label></p></div>
+    <div class="full" style="margin-top:6px;display:flex;gap:10px">
+      <button class="btn btn-preto btn-sm">⤓ Exportar PDF</button>
+      <button class="btn btn-linha btn-sm">⤓ Exportar Excel</button></div>
+  </div></div>`)}
+  ${painel("Relatórios gerados",tabela(["Período","Escopo","Gerado em","Arquivo"],
+    [["Julho/2026","Todos os núcleos","02/08/2026",'<a href="#" style="color:var(--vermelho);font-weight:700">frequencia-julho.pdf</a>'],
+     ["Junho/2026","Todos os núcleos","03/07/2026",'<a href="#" style="color:var(--vermelho);font-weight:700">frequencia-junho.pdf</a>'],
+     ["1º semestre 2026","Edital Municipal","10/07/2026",'<a href="#" style="color:var(--vermelho);font-weight:700">prestacao-contas-s1.pdf</a>']]))}`}),
+
+ minhas:()=>({t:"Minhas aulas",a:`<button class="btn btn-preto btn-sm" onclick="ir('chamada')">Marcar frequência</button>`,c:`
+  <div class="kpis">
+    <div class="kpi g"><i>◷</i><span>Minhas turmas</span><b>2</b></div>
+    <div class="kpi"><i>👥</i><span>Meus alunos</span><b>25</b></div>
+    <div class="kpi a"><i>◷</i><span>Aulas nesta semana</span><b>3</b></div>
+    <div class="kpi v"><i>✓</i><span>Chamadas pendentes</span><b>1</b></div>
+  </div>
+  ${painel("Aulas de hoje",`<div class="painel-corpo plano">
+    <div class="aluno-linha"><span class="av">15h</span>
+      <span><b>Capoeira infantil · Belvedere</b><small>16 alunos · 15:00 às 16:30</small></span>
+      <span class="presenca"><button class="btn btn-preto btn-sm" onclick="ir('chamada')">Fazer chamada</button></span></div>
+    <div class="aluno-linha"><span class="av">17h</span>
+      <span><b>Pandeiro · Belvedere</b><small>9 alunos · 17:00 às 18:00</small></span>
+      <span class="presenca"><span class="pill p-verde">Chamada feita</span></span></div>
+  </div>`)}
+  ${painel("Todas as minhas aulas",tabela(["Modalidade","Localidade","Dias","Horário","Alunos"],
+    AULAS.filter(a=>a[4]==="Ricardo Alves").map(a=>[`<b>${a[0]}</b>`,a[1],a[2],a[3],a[5]])))}`}),
+
+ chamada:()=>({t:"Marcar frequência",a:"",c:`
+  ${painel("Capoeira infantil · Belvedere · 27/08/2026",`<div class="painel-corpo">
+    <div class="grade">
+      <div><label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">Foto ou vídeo da aula</label>
+        <div class="zona">📷 Tirar foto / gravar vídeo<br><small>Comprovação da realização da aula</small></div></div>
+      <div><label style="font-size:13px;font-weight:700;display:block;margin-bottom:6px">Localização</label>
+        <div class="zona" style="border-style:solid;background:#fff">
+          <span class="pill p-verde">Localização confirmada</span>
+          <p style="font-size:13px;color:var(--texto-2);margin-top:9px">Núcleo Belvedere · −20.5241, −43.6928</p></div></div>
+    </div></div>`,`<span class="pill p-amarelo">Em andamento</span>`)}
+  ${painel("Lista de presença · 16 alunos",`<div class="painel-corpo plano" id="lista-chamada"></div>`,
+    `<button class="btn btn-linha btn-sm">Lista manual</button>
+     <button class="btn btn-preto btn-sm">Salvar chamada</button>`)}`}),
+
+ fotos:()=>({t:"Fotos",a:`<button class="btn btn-preto btn-sm">+ Enviar fotos</button>`,c:`
+  <div class="nota">Acervo de uso geral: registros de aulas, rodas e eventos. As fotos marcadas
+   como públicas aparecem no site da associação.</div>
+  ${painel("Acervo · 348 fotos",`<div class="painel-corpo"><div class="fotos-g">${
+    FOTOS.map(f=>`<div class="foto ${f[0]}"><span>${f[1]}<br><small style="font-weight:400">${f[2]}</small></span></div>`).join("")
+  }</div></div>`,`<button class="btn btn-linha btn-sm">Filtrar por núcleo</button>`)}`}),
+
+ arquivos:()=>({t:"Arquivos",a:`<button class="btn btn-preto btn-sm">+ Enviar arquivo</button>`,c:`
+  <div class="nota">Diretório central de documentos da associação — estatuto, editais,
+   convênios, prestação de contas e autorizações. Facilita o compartilhamento entre a
+   diretoria e os professores.</div>
+  <div class="trilha">🗀 <b>Arquivos da ACAFRO</b></div>
+  ${painel("Pastas",`<div class="painel-corpo"><div class="arqs">${
+    PASTAS.map(p=>`<div class="arq"><i>${p[0]}</i><b>${p[1]}</b><span>${p[2]}</span></div>`).join("")
+  }</div></div>`)}
+  ${painel("Arquivos recentes",`<div class="painel-corpo"><div class="arqs">${
+    ARQUIVOS.map(a=>`<div class="arq"><i>${a[0]}</i><b>${a[1]}</b><span>${a[2]}</span></div>`).join("")
+  }</div></div>`)}`})
+};
+
+function ir(id){tela=id;const v=TELAS[id]();
+  gaveta(false);
+  document.getElementById("titulo").innerHTML=v.t+'<span class="ponto">.</span>';
+  document.getElementById("topo-tit").textContent=v.t;
+  document.getElementById("acoes").innerHTML=v.a||"";
+  document.getElementById("conteudo").innerHTML=v.c;
+  desenhaMenu();
+  const lista=document.getElementById("lista-chamada");
+  if(lista){lista.innerHTML=ALUNOS.concat(ALUNOS.slice(0,3)).slice(0,8).map((a,i)=>
+    `<div class="aluno-linha"><span class="av">${a[0].split(" ").map(x=>x[0]).slice(0,2).join("")}</span>
+     <span><b>${a[0]}</b><small>${a[1]} anos · ${a[2]}</small></span>
+     <span class="presenca">
+       <button class="tgl ${i%5!==3?'ok':''}" onclick="marca(this,'ok')">Presente</button>
+       <button class="tgl ${i%5===3?'no':''}" onclick="marca(this,'no')">Falta</button>
+     </span></div>`).join("");}
+  document.querySelector(".conteudo").scrollTo(0,0);window.scrollTo(0,0)}
+
+function marca(b,tipo){const par=b.parentElement;
+  par.querySelectorAll(".tgl").forEach(x=>x.classList.remove("ok","no"));
+  b.classList.add(tipo)}
+</script>
+</body>
+</html>
+
+<script>addEventListener("resize",()=>{if(innerWidth>=1000)document.body.classList.remove("drawer-on")});</script>

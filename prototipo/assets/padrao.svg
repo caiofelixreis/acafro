@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <pattern id="zig" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M5 3 L14 9 L5 15 L14 21 L5 27" fill="none" stroke="#FFFDF9" stroke-opacity=".10"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </pattern>
+  </defs>
+  <rect width="120" height="120" fill="url(#zig)"/>
+</svg>
