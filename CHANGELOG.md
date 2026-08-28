@@ -11,6 +11,12 @@ Prefixos: `[insumo]` `[doc]` `[entrega]` `[decisão]` `[código]` `[reunião]`
 
 ## 2026-08-27
 
+- **[doc]** Arquivo `CITATION.cff` criado com os metadados de citação do Sistema ACAFRO e referenciado no README. — Marina
+
+- **[doc]** README atualizado com a estrutura da pasta `Código/` e os comandos para executar backend, frontend e analytics localmente. — Marina
+
+- **[código]** Estrutura executável organizada em `Código/`, com os módulos `backend`, `frontend` e `data-analytics`; documentação, insumos, protótipo e identidade visual permanecem fora da pasta de código. — Marina
+
 - **[decisão]** Uso de cor revisto para **pontual**: base neutra quente (areia, creme, quase-preto) e as cores da logo reservadas ao que carrega significado — vermelho em acento e alerta, verde em confirmação, amarelo em atenção. Botões primários passaram a ser escuros; faixas tricolores de página inteira viraram uma régua curta de 78px; as fotos ganharam família neutra quente no lugar do revezamento vermelho/amarelo/verde. — Caio
 - **[decisão]** Uso da logo revisto. Ela aparecia em 6 pontos, sempre em caixa branca sobre fundo escuro. Agora aparece **uma vez por página**, como peça institucional no hero. Nos demais lugares entra uma **marca derivada** desenhada a partir do zigue-zague da própria logo (`prototipo/assets/marca.svg`), em `currentColor` com três pontos nas cores da ACAFRO — funciona sobre claro e escuro sem caixa branca. Criado também um padrão de repetição (`padrao.svg`) e um lockup com wordmark. — Caio
 - **[decisão]** Tipografia trocada: **Archivo** (títulos) + **Inter** (texto), no lugar de Fraunces + DM Sans da proposta de branding. O Archivo tem esqueleto quadrado que conversa com as formas da logo. Troca centralizada em `--display`/`--sans`. — Caio

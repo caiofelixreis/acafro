@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "Se você utilizar o Sistema ACAFRO, cite este software."
+type: software
+title: "Sistema ACAFRO"
+version: "0.1.0"
+date-released: 2026-08-27
+abstract: "Aplicação web para gestão de alunos, frequência, financeiro, estoque e eventos da Associação de Cultura Afro-Brasileira de Ouro Branco/MG."
+keywords:
+  - ACAFRO
+  - cultura afro-brasileira
+  - gestão de oficinas
+  - frequência
+  - Ouro Branco
+authors:
+  - family-names: Reis
+    given-names: Caio Felix
+  - family-names: Diniz
+    given-names: Marina Silva
+  - family-names: Tavares
+    given-names: Mariana Fonseca Reis
+  - family-names: Cardoso de Araújo
+    given-names: Milena
+  - family-names: Duarte Moura de Almeida
+    given-names: Murilo
+  - family-names: da Silva Moreira
+    given-names: João Gabriel
+repository-code: "https://github.com/caiofelixreis/ti4-acafro"
+license: "UNLICENSED"

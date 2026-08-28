@@ -64,6 +64,10 @@ Declarados na ata de 21/08 (§11):
 - [ ] Aprofundar viabilidade e escopo da área social
 - [ ] Definir stack tecnológica e cronograma de desenvolvimento
 
+- [x] Estrutura base de código organizada em `Código/`, contendo frontend, backend e analytics
+- [x] README atualizado com a estrutura e os comandos de execução da aplicação
+- [x] Arquivo `CITATION.cff` criado para citação do software
+
 ---
 
 ## ✅ Concluído
