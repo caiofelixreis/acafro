@@ -30,8 +30,8 @@ pnpm-lock.yaml
 *.config.js
 
 # configurações de agente
-AGENTS.md
-STATUS.md
-CHANGELOG.md
+/AGENTS.md
+/STATUS.md
+/CHANGELOG.md
 .github/
-.gitignore
+
