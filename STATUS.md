@@ -67,6 +67,9 @@ Declarados na ata de 21/08 (§11):
 - [x] Estrutura base de código organizada em `Código/`, contendo frontend, backend e analytics
 - [x] README atualizado com a estrutura e os comandos de execução da aplicação
 - [x] Arquivo `CITATION.cff` criado para citação do software
+- [x] Scripts centralizados de `verify` configurados em `Código/package.json`
+- [x] Instruções de `/plan` ampliadas com casos de teste por User Story
+- [x] Instruções de `/verify` reforçadas para geração obrigatória de relatório Markdown
 
 ---
 

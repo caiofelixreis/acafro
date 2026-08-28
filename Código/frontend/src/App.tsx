@@ -1,4 +1,4 @@
-import { useNucleos } from './hooks/useNucleos';
+import { useNucleos } from './hooks/useNucleos.js';
 import './styles.css';
 
 export function App() {

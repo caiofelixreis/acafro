@@ -22,3 +22,16 @@ pnpm-lock.yaml
 
 # temporários
 *.log
+
+# arquivos de teste
+*.test.ts
+
+# arquivos de configuração
+*.config.js
+
+# configurações de agente
+AGENTS.md
+STATUS.md
+CHANGELOG.md
+.github/
+.gitignore

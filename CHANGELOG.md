@@ -11,6 +11,10 @@ Prefixos: `[insumo]` `[doc]` `[entrega]` `[decisão]` `[código]` `[reunião]`
 
 ## 2026-08-27
 
+- **[decisão]** Comandos `/plan` e `/verify` atualizados: planos devem gerar casos de teste rastreáveis por User Story; verificações devem sempre criar relatório Markdown com evidências, inclusive quando não houver inconsistências. — Marina
+
+- **[código]** Scripts centralizados de `test`, `lint`, `typecheck` e `verify` adicionados em `Código/package.json`; validação completa executada com sucesso. — Marina
+
 - **[doc]** Arquivo `CITATION.cff` criado com os metadados de citação do Sistema ACAFRO e referenciado no README. — Marina
 
 - **[doc]** README atualizado com a estrutura da pasta `Código/` e os comandos para executar backend, frontend e analytics localmente. — Marina

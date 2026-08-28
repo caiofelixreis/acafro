@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { nucleosService, type Nucleo } from '../services/api';
+import { nucleosService, type Nucleo } from '../services/api.js';
 
 export function useNucleos() {
   const [nucleos, setNucleos] = useState<Nucleo[]>([]);
