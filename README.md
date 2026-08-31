@@ -18,7 +18,9 @@ Trabalho Interdisciplinar 4 — Engenharia de Software, PUC Minas, 2026/2.
 | Trabalhar neste projeto (pessoa ou agente) | [`AGENTS.md`](AGENTS.md) — regras de operação |
 | Saber o estado atual e o que está pendente | [`STATUS.md`](STATUS.md) |
 | Saber o que já foi feito e quando | [`CHANGELOG.md`](CHANGELOG.md) |
+| Citar o software | [`CITATION.cff`](CITATION.cff) |
 | Ver o protótipo navegável | [`prototipo/`](prototipo/README.md) |
+| Executar o código da aplicação | [`Código/`](Código/) |
 | Entender quem é a ACAFRO | [`docs/2026-08-27-discovery-acafro.md`](docs/2026-08-27-discovery-acafro.md) |
 | Consultar os documentos do cliente | [`insumos/INDEX.md`](insumos/INDEX.md) |
 | Ver a entrega da Sprint 1 | [`entregas/sprint-1/`](entregas/sprint-1/README.md) |
@@ -36,8 +38,65 @@ acafro/
 ├── entregas/          entregáveis por sprint
 ├── marca/             logo e paleta
 ├── prototipo/         protótipo navegável (HTML estático, mobile first)
-└── branding/          proposta de identidade visual em Next.js
+├── branding/          proposta de identidade visual em Next.js
+└── Código/            código executável da aplicação
+    ├── backend/         API Node.js + TypeScript + Fastify + Prisma/SQLite
+    ├── frontend/        interface React + TypeScript + Vite
+    └── data-analytics/  relatórios Python + Pandas + ReportLab
 ```
+
+`Código/` contém somente o código e as configurações necessárias para executar a
+aplicação. Documentação, insumos, protótipo e identidade visual ficam nas pastas
+correspondentes da raiz.
+
+## Código da aplicação
+
+### Backend
+
+Em um terminal PowerShell:
+
+```powershell
+Set-Location Código/backend
+Copy-Item .env.example .env
+npm install
+npm run db:generate
+npm run db:push
+npm run db:seed
+npm run dev
+```
+
+A API fica disponível em `http://localhost:3333`. O endpoint de saúde é
+`GET /health`, e o CRUD de núcleos fica em `/api/nucleos`. Consulte
+[`Código/backend/README.md`](Código/backend/README.md) para o token de demonstração e os perfis de acesso.
+
+### Frontend
+
+Em outro terminal:
+
+```powershell
+Set-Location Código/frontend
+Copy-Item .env.example .env
+npm install
+npm run dev
+```
+
+A interface fica disponível em `http://localhost:5173` e consome a API pelo hook
+`useNucleos`. Detalhes em [`Código/frontend/README.md`](Código/frontend/README.md).
+
+### Analytics
+
+Com o banco criado pelo backend:
+
+```powershell
+Set-Location Código/data-analytics
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python report_nucleos.py --database ..\backend\prisma\dev.db --output .\relatorio-nucleos.pdf
+```
+
+O script lê o SQLite, agrega os núcleos ativos com Pandas e gera um relatório PDF.
+Veja [`Código/data-analytics/README.md`](Código/data-analytics/README.md).
 
 ## Protótipo
 
