@@ -9,6 +9,12 @@ Prefixos: `[insumo]` `[doc]` `[entrega]` `[decisão]` `[código]` `[reunião]`
 
 ---
 
+## 2026-08-31
+
+- **[insumo]** Cliente forneceu a **logo em PNG com transparência**. Recortada no limite do conteúdo (612 × 276) e salva como `marca/logo-acafro.png`; gerada a variante `logo-acafro-escura.png` recolorindo só o lettering, para uso sobre fundo claro. O JPEG de fundo branco foi descartado. — Caio
+- **[código]** A logo real substituiu a marca derivada em SVG nas seis superfícies do protótipo. Sem fundo branco, ela assenta direto no escuro — o cartão branco do hero saiu. — Caio
+- **[entrega]** Protótipo publicado em **https://acafro.vercel.app**. — Caio
+
 ## 2026-08-27
 
 - **[decisão]** Uso de cor revisto para **pontual**: base neutra quente (areia, creme, quase-preto) e as cores da logo reservadas ao que carrega significado — vermelho em acento e alerta, verde em confirmação, amarelo em atenção. Botões primários passaram a ser escuros; faixas tricolores de página inteira viraram uma régua curta de 78px; as fotos ganharam família neutra quente no lugar do revezamento vermelho/amarelo/verde. — Caio

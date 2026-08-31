@@ -89,19 +89,17 @@ uma **régua curta** de 78px com os três segmentos, usada uma vez por tela.
 
 ### Uso da logo
 
-A logo original tem fundo branco sólido e lettering pesado — repetida em cabeçalho, hero,
-rodapé, login e sidebar, ela dominava tudo e exigia uma caixa branca sobre fundo escuro.
+O cliente forneceu a logo em **PNG com transparência**, em duas variantes geradas a partir
+dela (ver [`../marca/README.md`](../marca/README.md)):
 
-Agora **a logo aparece uma única vez por página**, no cartão do hero do site, tratada como
-peça institucional com legenda e régua de acento. Em todos os outros lugares entra uma
-**marca derivada**, desenhada a partir do zigue-zague da própria logo:
+| Variante | Onde aparece |
+|---|---|
+| `logo-acafro.png` — lettering branco | Hero, rodapé, painel do login, sidebar, topo do app |
+| `logo-acafro-escura.png` — lettering quase-preto | Cabeçalho do site |
 
-- [`assets/marca.svg`](assets/marca.svg) — zigue-zague em `currentColor` com três pontos
-  nas cores da ACAFRO. Herda a cor do contexto, então funciona sobre claro e escuro sem
-  caixa branca.
-- [`assets/padrao.svg`](assets/padrao.svg) — o mesmo motivo em padrão de repetição, para
-  fundos e texturas.
-- O *lockup* combina a marca com o wordmark "ACAFRO" e a linha "Ouro Branco · MG".
+Com o fundo transparente, a logo assenta direto na superfície — acabou a caixa branca que
+antes era necessária sobre fundo escuro. A marca derivada em SVG que existia como solução
+provisória foi removida.
 
 ### Tipografia
 

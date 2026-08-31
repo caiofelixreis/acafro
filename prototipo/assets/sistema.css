@@ -11,10 +11,7 @@ body.app{background:var(--fundo);min-height:100vh;padding-bottom:0}
 .login-arte{background:var(--deep);color:#FFFDF9;padding:26px var(--gut) 30px;position:relative}
 .login-arte::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;
   background:linear-gradient(90deg,var(--vermelho) 0 26px,var(--amarelo) 26px 52px,var(--verde) 52px 78px,#2A241F 78px)}
-.login-arte .lockup{margin-bottom:22px}
-.login-arte .lockup b{color:#FFFDF9;font-size:24px}
-.login-arte .lockup small{color:#8A8078}
-.login-arte .marca{color:#FFFDF9;width:30px;height:35px}
+.marca-login{width:min(78%,230px);height:auto;margin-bottom:24px}
 .login-arte h1{font-size:clamp(28px,7.6vw,36px);color:#FFFDF9;margin-bottom:9px}
 .login-arte p{color:#CFC6BC;font-size:15px;line-height:1.6}
 .login-form{flex:1;display:flex;flex-direction:column;padding:28px var(--gut) 36px}
@@ -44,8 +41,7 @@ body.app{background:var(--fundo);min-height:100vh;padding-bottom:0}
 .shell{display:flex;flex-direction:column;min-height:100vh}
 .app-topo{position:sticky;top:0;z-index:45;background:var(--deep);color:#FFFDF9;
   display:flex;align-items:center;gap:11px;padding:10px var(--gut);min-height:60px}
-.app-topo .marca{color:#FFFDF9;width:21px;height:24px}
-.app-topo b{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-.03em}
+.marca-appbar{height:26px;width:auto;flex:0 0 auto}
 .app-topo .titulo-mob{color:#CFC6BC;font-weight:500;font-family:var(--sans);font-size:14px;
   padding-left:11px;margin-left:2px;border-left:1px solid #3A342E}
 .drawer-btn{margin-left:auto;width:var(--toque);height:var(--toque);border:0;background:transparent;
@@ -62,9 +58,7 @@ body.drawer-on .side{transform:none}
 .veu{position:fixed;inset:0;background:#14100E99;z-index:65;display:none}
 body.drawer-on .veu{display:block}
 .side-topo{padding:0 8px 26px;display:flex;align-items:center;gap:10px}
-.side-topo .lockup b{color:#FFFDF9;font-size:18px}
-.side-topo .lockup small{color:#8A8078}
-.side-topo .marca{color:#FFFDF9}
+.marca-side{width:min(100%,168px);height:auto}
 .fechar-drawer{margin-left:auto;background:transparent;border:0;color:#8A8078;font-size:26px;
   line-height:1;width:40px;height:40px}
 .side nav{flex:1;display:flex;flex-direction:column;gap:2px}
@@ -184,8 +178,7 @@ td::before{content:attr(data-l);font-size:10px;font-weight:800;text-transform:up
 @media (min-width:700px){
   .login{flex-direction:row}
   .login-arte{flex:1;display:flex;flex-direction:column;justify-content:center;padding:56px 44px}
-  .login-arte .lockup{align-self:flex-start;margin-bottom:30px}
-  .login-arte .lockup b{font-size:30px}
+  .marca-login{width:min(100%,290px);margin-bottom:32px}
   .login-arte p{max-width:42ch;font-size:16px}
   .login-form{flex:1;justify-content:center;padding:56px 44px;background:var(--card)}
   .kpis{grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:12px}

@@ -43,13 +43,12 @@ h3{font-size:19px;letter-spacing:-.025em}
 .ponto{color:var(--primaria)}
 .wrap{width:100%;padding-inline:var(--gut);margin:0 auto}
 
-/* marca derivada da logo — zigue-zague + três pontos nas cores da ACAFRO */
-.marca{width:24px;height:28px;flex:0 0 auto;display:block}
-.lockup{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
-.lockup b{display:block;font-family:var(--display);font-weight:700;font-size:19px;
-  letter-spacing:-.02em;line-height:1}
-.lockup small{display:block;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--suave);margin-top:3px}
+/* logo oficial em PNG com transparência.
+   logo-acafro.png        -> lettering branco, para fundos escuros
+   logo-acafro-escura.png -> lettering quase-preto, para fundos claros */
+.marca-topo{display:block;flex:0 0 auto}
+.marca-topo img{height:30px;width:auto}
+.marca-rodape{height:44px;width:auto;margin-bottom:14px}
 
 /* eyebrow */
 .selo{display:block;color:var(--primaria);font-family:var(--sans);font-size:10px;
@@ -101,10 +100,11 @@ body.menu-on .nav{display:flex}
 .hero::after{content:"";position:absolute;inset:auto 0 0 0;height:6px;
   background:linear-gradient(90deg,var(--vermelho) 0 26px,var(--amarelo) 26px 52px,var(--verde) 52px 78px,#2A241F 78px)}
 .hero .selo{color:#C9B79A}
-.hero-logo{background:#FFFDF9;padding:18px;border-radius:var(--raio);margin:0 0 24px}
-.hero-logo figcaption{display:flex;flex-direction:column;gap:9px;margin-top:14px;
-  padding-top:14px;border-top:1px solid var(--borda);
-  font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--suave);
+.hero-logo{margin:0 0 26px;padding:0}
+.hero-logo img{width:min(100%,300px);height:auto}
+.hero-logo figcaption{display:flex;flex-direction:column;gap:10px;margin-top:16px;
+  padding-top:16px;border-top:1px solid #33302C;
+  font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:#9C938A;
   font-weight:700;line-height:1.5}
 .hero h1{color:#FFFDF9;font-size:clamp(37px,10.2vw,48px)}
 .hero h1 em{font-style:normal;color:#D9C48A}
@@ -213,7 +213,7 @@ footer a:hover{color:#FFFDF9}
   body{padding-bottom:0;font-size:15px}
   .wrap{width:min(1180px,94vw);padding-inline:0}
   .topo-in{gap:24px;padding:14px 0}
-  .topo img{height:42px}
+  .marca-topo img{height:36px}
   .menu-btn{display:none}
   .nav{position:static;display:flex;flex-direction:row;gap:24px;margin-left:auto;align-items:center;
     padding:0;inset:auto;overflow:visible;background:transparent}
@@ -251,7 +251,8 @@ footer a:hover{color:#FFFDF9}
 @media (min-width:1000px){
   .hero{padding:82px 0 74px}
   .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:52px;align-items:center}
-  .hero-logo{order:2;margin-bottom:0;padding:26px}
+  .hero-logo{order:2;margin-bottom:0}
+  .hero-logo img{width:100%;max-width:none}
   .hero-txt{order:1}
   .hero h1{font-size:clamp(48px,5vw,66px)}
   .hero p{font-size:17px;max-width:50ch;margin:20px 0 28px}
